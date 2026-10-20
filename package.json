@@ -1,0 +1,15 @@
+{
+  "name": "automation-with-selenium",
+  "version": "1.0.0",
+  "description": "this is a selenium automation project",
+  "license": "ISC",
+  "author": "adnan",
+  "type": "module",
+  "main": "base.js",
+  "scripts": {
+    "test": "node base.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.51.0"
+  }
+}
