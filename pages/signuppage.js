@@ -4,9 +4,9 @@ import {base} from './base.js'
 class signup extends base
 {
 
- constructor()
+ constructor(driver)
 {
-        super();
+        super(driver);
         //signup locators
         this.regisrerLink = By.xpath("//a[@href='/register']");
         this.genderMale = By.id("gender-male");
@@ -24,6 +24,7 @@ class signup extends base
 
 }
 
+   
 
 async clickRegisterLink()
         {

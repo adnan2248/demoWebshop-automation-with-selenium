@@ -1,18 +1,18 @@
-import {Builder,By} from 'selenium-webdriver';
-class base 
-{
+import { Builder, By } from 'selenium-webdriver';
 
-constructor()
-{
-    this.driver=new Builder().forBrowser('chrome').build();
-       
+class base {
+    constructor(driver) {
+        this.driver = driver;
+    }
+
+    async openBrowser(url) {
+        await this.driver.get(url);
+        await this.driver.manage().window().maximize();
+    }
+
+    async closeBrowser() {
+        await this.driver.quit();
+    }
 }
-async openBrowser(url)
-        {
-            await this.driver.get(url);
-            await this.driver.manage().window().maximize();
-        }
 
-}
-
-export {base};
+export { base };

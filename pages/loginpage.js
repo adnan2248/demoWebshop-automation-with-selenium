@@ -3,9 +3,9 @@ import {base} from './base.js'
 class loginPage extends base
 {
 
-constructor()
+constructor(driver)
 {
-       super();
+       super(driver);
        
         //login locators
         this.loginLink = By.xpath("//a[@href='/login']");
