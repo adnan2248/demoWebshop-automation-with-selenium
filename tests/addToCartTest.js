@@ -13,7 +13,7 @@ try {
     await login.openBrowser('https://demowebshop.tricentis.com');
         await login.openBrowser("https://demowebshop.tricentis.com");
         await login.clickLoginLink();
-        await login.enterLoginEmail("adnan123456@example.com");
+        await login.enterLoginEmail("adnan2248@example.com");
         await login.enterLoginPassword("Password123");
         await login.clickRememberMe();
         await login.clickLoginButton();
@@ -38,10 +38,17 @@ try {
     await result.typeBillingAddressNumber('123-456-7890');
     await result.typeBillingAddressFax('987-654-3210');
     await result.clickBillingContinueButton();
+
     await result.clickShippingContinueButton();
-    await result.clickBillingContinueButton();
-    await result.clickShippingOption();
-    await result.clickShippingMethodContinueButton();
+
+   await result.clickShippingOption();
+
+  await result.clickShippingMethodContinueButton();
+
+  await result.clickPaymentMethodOption();
+  await result.clickPaymentMethodContinueButton();
+  await result.clickPaymentInfoContinueButton();
+  await result.clickConfirmOrderButton();
 
 } catch (error) {
     console.error('Automation failed:', error);

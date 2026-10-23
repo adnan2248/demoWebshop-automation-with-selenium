@@ -15,7 +15,7 @@ try {
     await result.clickGenderRadio();
     await result.enterFirstName('adnan');
     await result.enterLastName('hossain');
-    await result.enterEmail('adnan123456@example.com');
+    await result.enterEmail('adnan2248@example.com');
     await result.enterPassword('Password123');
     await result.enterConfirmPassword('Password123');
     await result.clickRegisterButton();

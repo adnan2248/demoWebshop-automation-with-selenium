@@ -35,7 +35,12 @@ class addToCartPage extends base {
         this.billingContinueButton = By.xpath("//input[@type='button' and @onclick='Billing.save()']");
         this.shippingOption=By.id("shippingoption_1");//<input id="shippingoption_1" type="radio" name="shippingoption" value="Next Day Air___Shipping.FixedRate">
         this.shippingMethodContinueButton = By.xpath("//input[@type='button' and @onclick='ShippingMethod.save()' and @value='Continue']");
+        this.paymentMethodOption = By.id("paymentmethod_0");//<input id="paymentmethod_1" type="radio" name="paymentmethod" value="Payments.Manual">
+        this.paymentMethodContinueButton = By.css("input.payment-method-next-step-button[onclick='PaymentMethod.save()']");
+        this.paymentInfoContinueButton = By.css("input.payment-info-next-step-button[onclick='PaymentInfo.save()']");
+        this.confirmOrderButton = By.css("input.confirm-order-next-step-button[onclick='ConfirmOrder.save()']");
     } 
+
 
     async clickBooksInMenu() {
         await this.driver.findElement(this.booksInMenu).click();
@@ -80,19 +85,9 @@ async clickProductLink() {
         10000
     );
 
-    await this.driver.wait(
-        until.elementIsVisible(
-            await this.driver.findElement(productLink)
-        ),
-        10000
-    );
+    await this.driver.wait(until.elementIsVisible(await this.driver.findElement(productLink)),10000);
 
-    await this.driver.wait(
-        until.elementIsEnabled(
-            await this.driver.findElement(productLink)
-        ),
-        10000
-    );
+    await this.driver.wait(until.elementIsEnabled( await this.driver.findElement(productLink)),10000);
 
     await this.driver.findElement(productLink).click();
 }
@@ -263,8 +258,22 @@ async clickBillingContinueButton() {
 }
 
 async clickShippingOption() {
-    const shippingOptionElement = await this.driver.findElement(this.shippingOption);
-    await shippingOptionElement.click();
+    const shippingOption = await this.driver.wait(
+        until.elementLocated(this.shippingOption),
+        15000
+    );
+
+    await this.driver.wait(
+        until.elementIsVisible(shippingOption), 
+        10000
+    );
+
+    await this.driver.wait(
+        until.elementIsEnabled(shippingOption),
+        10000
+    );
+
+    await shippingOption.click();
 }
 
 async clickShippingMethodContinueButton() {
@@ -275,6 +284,61 @@ async clickShippingMethodContinueButton() {
 
     await this.driver.wait(until.elementIsVisible(button), 10000);
     await this.driver.wait(until.elementIsEnabled(button), 10000);
+
+    await button.click();
+}
+
+async clickPaymentMethodOption() {
+    const paymentMethodOption = await this.driver.wait(
+        until.elementLocated(this.paymentMethodOption),
+        10000
+    );
+}
+
+async clickPaymentMethodContinueButton() {
+    const button = await this.driver.wait(
+        until.elementLocated(this.paymentMethodContinueButton),
+        10000
+    );
+
+    await this.driver.wait(
+        until.elementIsVisible(button),
+        10000
+    );
+
+    await this.driver.wait(
+        until.elementIsEnabled(button),
+        10000
+    );
+
+    await button.click();
+}
+
+
+
+async clickPaymentInfoContinueButton() {
+    const button = await this.driver.wait(
+        until.elementLocated(this.paymentInfoContinueButton),10000);
+
+    await this.driver.wait(
+        until.elementIsVisible(button),10000);
+
+    await this.driver.wait(until.elementIsEnabled(button),10000);
+
+    await button.click();
+}
+
+async clickConfirmOrderButton() {
+    const button = await this.driver.wait(
+        until.elementLocated(this.confirmOrderButton),10000);
+
+    await this.driver.wait(
+        until.elementIsVisible(button),10000);
+
+    await this.driver.wait(
+        until.elementIsEnabled(button),
+        10000
+    );
 
     await button.click();
 }
