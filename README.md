@@ -1,4 +1,3 @@
-# demoWebshop-automation-with-selenium
 # 🛒 Demo Web Shop Automation Testing with Selenium
 
 A UI test automation project built using **JavaScript, Selenium WebDriver, and Node.js** to automate key e-commerce workflows on the [Tricentis Demo Web Shop](https://demowebshop.tricentis.com/).
